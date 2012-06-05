@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
@@ -14,7 +13,7 @@ public class GamePanel extends JPanel {
 	private Player[] players={p,p2};
 	private BombermanEntity[] bombermans={b,b2};
 	private InputHandler input=p.getInputHandler();
-	private Map mp =new Map(16,12);
+	private Map mp =new Map();
 	private MoveBombermanThread mb=new MoveBombermanThread(players, bombermans, this);
 	
     public static GamePanel gp;
@@ -29,10 +28,12 @@ public class GamePanel extends JPanel {
 		EntityManager.entitylist.add(b);
 		EntityManager.entitylist.add(b2);
 		mp.setMap();
-		for(int i=0;i<16;i++){
-			for(int j=0;j<12;j++){
+		
+
+		for(int i=0;i<mp.mapFieldX();i++){
+			for(int j=0;j<mp.mapFieldY();j++){
 			if(mp.isSelected(i, j)){
-				  StoneEntity st=new StoneEntity("stone.png",i*50 ,j*50);
+				  StoneEntity st=new StoneEntity("stone.png",j*50 ,i*50);
 				  EntityManager.entitylist.add(st);
 			}
 			}
@@ -42,13 +43,6 @@ public class GamePanel extends JPanel {
 	}
 	public void paint(Graphics g){
 		super.paint(g);
-		for(int i=1;i<16;i++){
-			g.drawLine(50*i, 0, 50*i, 600);
-			}
-			
-			for(int i=1;i<16;i++){
-			g.drawLine(0, 50*i,800, 50*i);
-			}
 			
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
@@ -58,14 +52,8 @@ public class GamePanel extends JPanel {
 				}
 			}
 		}
-		
-		
-		
-		
+
 			
-	
-			
-		
 		g.dispose();
 		
 	}

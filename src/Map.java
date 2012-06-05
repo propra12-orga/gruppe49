@@ -1,24 +1,24 @@
 
 public class Map {
 	private int[][] a;
-	
+	private ReadFile file;
 		
-	public Map(int n, int m){
-     a=new int[n][m];
+	public Map(){
+	file=new ReadFile("rescorce/map.txt");
+     a=new int[file.getDimX()][file.getDimY()];
 	}
 	
 	public void setMap(){
-		for(int i=0;i<15;i++){
-			for(int j=0;j<11;j++){
-				if(j%2==1&&i%2==1){
-				a[i][j]=1;
-				}else{
-					a[i][j]=0;
-				}
-			}
-		}
+		a=file.getContent();
 	}
 	
+	public int mapFieldX(){
+		return file.getDimX();
+	}
+	
+	public int mapFieldY(){
+		return file.getDimY();
+	}
 	
 	
 	
