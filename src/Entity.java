@@ -7,8 +7,9 @@ public class Entity {
 	protected double my;
 	protected Sprite sprite;
 	
-	public final static int Default_Movement_On_X =300;
-	public final static int Default_Movement_On_Y =300;
+	
+	public final static int Default_Movement_On_X =50;
+	public final static int Default_Movement_On_Y =50;
 	
 	
 	public Entity(String src, double x, double y){
@@ -36,7 +37,7 @@ public class Entity {
 	}
 	
 	public void moveOnX(long duration){
-		double movement=duration*mx/1000;
+		double movement=mx;
 		if(GamePanel.gp.getWidth() !=0){
 			if(x+movement<0 )x=0;
 			else if(x+movement>GamePanel.gp.getWidth()-sprite.getWidth())x=GamePanel.gp.getWidth()-sprite.getWidth();
@@ -45,11 +46,10 @@ public class Entity {
 	}
 	
 	public void moveOnY(long duration){
-		double movement=duration*my/1000;
+		double movement=my;
 		if(GamePanel.gp.getHeight() !=0){
 			if(y+movement<0 )y=0;
 			else if(y+movement>GamePanel.gp.getHeight()-sprite.getHeight())y=GamePanel.gp.getHeight()-sprite.getHeight();
-		//	else if(y+movement)
 			else y+=movement;
 		}
 	}
@@ -75,19 +75,53 @@ public class Entity {
 		this.y=y;
 	}
 	
+	public boolean canMoveLeft(int step){
+		for(int i=0;i<EntityManager.entitylist.size();i++){
+			Entity e=EntityManager.entitylist.get(i);
+			if(e != null){
+				if(x-step==e.getX()&&y==e.getY()){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean canMoveRight(int step){
+		for(int i=0;i<EntityManager.entitylist.size();i++){
+			Entity e=EntityManager.entitylist.get(i);
+			if(e != null){
+				if(x+step==e.getX()&&y==e.getY()){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 	
+	public boolean canMoveUP(int step){
+		for(int i=0;i<EntityManager.entitylist.size();i++){
+			Entity e=EntityManager.entitylist.get(i);
+			if(e != null){
+				if(y-step==e.getY()&&x==e.getX()){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public boolean canMoveDown(int step){
+		for(int i=0;i<EntityManager.entitylist.size();i++){
+			Entity e=EntityManager.entitylist.get(i);
+			if(e != null){
+				if(y+step==e.getY()&&x==e.getX()){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 	
 	
 	

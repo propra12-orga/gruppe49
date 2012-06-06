@@ -5,7 +5,7 @@ public class Game {
 	
 	public static void main(String[] args) {
 		running=true;
-		new GameWindow("Bomberman", 750, 575);
+		new GameWindow("Bomberman", 750, 572);
 
 	}
 

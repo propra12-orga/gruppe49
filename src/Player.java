@@ -11,4 +11,8 @@ public class Player {
 	public InputHandler getInputHandler(){
 		return input;
 	}
+	
+	public String getName(){
+		return name;
+	}
 }
