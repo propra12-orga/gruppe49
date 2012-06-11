@@ -2,7 +2,7 @@
 public class BombEntity extends Entity {
 	/**
 	 * 
-	 * @param src Phad zum Bomben Bild
+	 * @param src Pfad zum Bomben Bild
 	 * @param x	X Position der Bombe
 	 * @param y Y Position des Bombe
 	 */
