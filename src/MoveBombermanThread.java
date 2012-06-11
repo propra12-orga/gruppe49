@@ -16,8 +16,9 @@ public class MoveBombermanThread implements Runnable {
 	}
 
 	public void run() {
-
+		int currentTime=(int)- System.currentTimeMillis();
 		while(Game.running){
+			
 			try{
 				for(int h=0;h<players.length;h++){
 					BombermanEntity b=bombermans[h];
@@ -37,12 +38,27 @@ public class MoveBombermanThread implements Runnable {
 					if(input.right  && !input.left &&!input.up &&!input.down && b.canMoveRight(step)){
 						b.setHorizontalMovement(step);	
 					}
+					if(input.aktion && (currentTime +(int)System.currentTimeMillis())>1000  ){
+						currentTime=(int)- System.currentTimeMillis();
+						if(h==0){
+							SetBombThread bombt1=new SetBombThread(h,bombermans[0].getX(),bombermans[0].getY());
+							new Thread(bombt1).start();
+						}else if(h==1){
+							SetBombThread bombt2=new SetBombThread(h,bombermans[1].getX(),bombermans[1].getY());
+							new Thread(bombt2).start();
+						}
+						
+						
+					}
+					
+			
+		
 				}
 				for(int i=0;i<EntityManager.entitylist.size();i++){
 					Entity e=EntityManager.entitylist.get(i);
 					if(e != null){
-						if(e.getHorizontalMovement()!=0) e.moveOnX(step);
-						if(e.getVerticalMovement()!=0) e.moveOnY(step);
+						if(e.getHorizontalMovement()!=0) e.moveOnX();
+						if(e.getVerticalMovement()!=0) e.moveOnY();
 					}
 				}
 

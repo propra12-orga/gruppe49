@@ -11,7 +11,12 @@ public class Entity {
 	public final static int Default_Movement_On_X =50;
 	public final static int Default_Movement_On_Y =50;
 	
-	
+	/**
+	 * 
+	 * @param src holt das bild mithilfe der Sprite Klasse und speicherd es ab 
+	 * @param x  Setzt die X Position von dem Entity Objekt
+	 * @param y  Setzt Y Position von dem Entity Objekt
+	 */
 	public Entity(String src, double x, double y){
 		sprite = SpriteManager.manager.getSprite(src);
 		this.x=x;
@@ -19,41 +24,58 @@ public class Entity {
 		mx=0;
 		my=0;
 	}
-	
+	/**
+	 * 
+	 * @param hm setzt Bewegung in der Horizontalen
+	 */
 	public void setHorizontalMovement(int hm){
 		mx=hm;
 	}
-	
+	/**
+	 * 
+	 * @param vm  setzt Bewegung in der Vertikalen
+	 */
 	public void setVerticalMovement(int vm){
 		my=vm;
 	}
-	
+	/**
+	 * 
+	 * @return gibt die Bewegung in der horizontale zurück
+	 */
 	public double getHorizontalMovement(){
 		return mx;
 	}
-	
+	/**
+	 * 
+	 * @return gibt die Bewegung in der vertikalen zurück
+	 */
 	public double getVerticalMovement(){
 		return my;
 	}
-	
-	public void moveOnX(long duration){
-		double movement=mx;
+	/*
+	 * Bewegt das Objekt auf der x Achse 
+	 */
+	public void moveOnX(){
 		if(GamePanel.gp.getWidth() !=0){
-			if(x+movement<0 )x=0;
-			else if(x+movement>GamePanel.gp.getWidth()-sprite.getWidth())x=GamePanel.gp.getWidth()-sprite.getWidth();
-			else x+=movement;
+			if(x+mx<0 )x=0;
+			else if(x+mx>GamePanel.gp.getWidth()-sprite.getWidth())x=GamePanel.gp.getWidth()-sprite.getWidth();
+			else x+=mx;
 		}
 	}
-	
-	public void moveOnY(long duration){
-		double movement=my;
+	/*
+	 * Bewegt das Objekt in der y Achse
+	 */
+	public void moveOnY(){
 		if(GamePanel.gp.getHeight() !=0){
-			if(y+movement<0 )y=0;
-			else if(y+movement>GamePanel.gp.getHeight()-sprite.getHeight())y=GamePanel.gp.getHeight()-sprite.getHeight();
-			else y+=movement;
+			if(y+my<0 )y=0;
+			else if(y+my>GamePanel.gp.getHeight()-sprite.getHeight())y=GamePanel.gp.getHeight()-sprite.getHeight();
+			else y+=my;
 		}
 	}
-	
+	/**
+	 * 
+	 * @return gibt das Sprite zurück
+	 */
 	public Sprite getSprite() {
 		return sprite;
 	}
@@ -84,6 +106,26 @@ public class Entity {
 				}
 			}
 		}
+		
+		for(int i=0;i<EntityManager.entitylistb1.size();i++){
+			Entity e=EntityManager.entitylistb1.get(i);
+			if(e != null){
+				if(x-step==e.getX()&&y==e.getY()){
+					return false;
+				}
+			}
+		}
+		
+		for(int i=0;i<EntityManager.entitylistb2.size();i++){
+			Entity e=EntityManager.entitylistb2.get(i);
+			if(e != null){
+				if(x-step==e.getX()&&y==e.getY()){
+					return false;
+				}
+			}
+		}
+		
+		
 		return true;
 	}
 
@@ -96,6 +138,29 @@ public class Entity {
 				}
 			}
 		}
+		
+		for(int i=0;i<EntityManager.entitylistb1.size();i++){
+			Entity e=EntityManager.entitylistb1.get(i);
+			if(e != null){
+				if(x+step==e.getX()&&y==e.getY()){
+					return false;
+				}
+			}
+		}
+		
+		for(int i=0;i<EntityManager.entitylistb2.size();i++){
+			Entity e=EntityManager.entitylistb2.get(i);
+			if(e != null){
+				if(x+step==e.getX()&&y==e.getY()){
+					return false;
+				}
+			}
+		}
+		
+		
+		
+		
+		
 		return true;
 	}
 	
@@ -108,6 +173,27 @@ public class Entity {
 				}
 			}
 		}
+		
+		for(int i=0;i<EntityManager.entitylistb1.size();i++){
+			Entity e=EntityManager.entitylistb1.get(i);
+			if(e != null){
+				if(y-step==e.getY()&&x==e.getX()){
+					return false;
+				}
+			}
+		}
+		
+		for(int i=0;i<EntityManager.entitylistb2.size();i++){
+			Entity e=EntityManager.entitylistb2.get(i);
+			if(e != null){
+				if(y-step==e.getY()&&x==e.getX()){
+					return false;
+				}
+			}
+		}
+		
+		
+		
 		return true;
 	}
 	
@@ -120,11 +206,30 @@ public class Entity {
 				}
 			}
 		}
+		
+		for(int i=0;i<EntityManager.entitylistb1.size();i++){
+			Entity e=EntityManager.entitylistb1.get(i);
+			if(e != null){
+				if(y+step==e.getY()&&x==e.getX()){
+					return false;
+				}
+			}
+		}
+		
+		for(int i=0;i<EntityManager.entitylistb2.size();i++){
+			Entity e=EntityManager.entitylistb2.get(i);
+			if(e != null){
+				if(y+step==e.getY()&&x==e.getX()){
+					return false;
+				}
+			}
+		}
+		
+		
 		return true;
 	}
 	
-	
-	
+
 	
 	
 	

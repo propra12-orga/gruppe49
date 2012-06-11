@@ -3,14 +3,15 @@ import java.awt.event.KeyListener;
 
 
 public class InputHandler implements KeyListener {
-	public boolean up,down,left,right;
-	private int k1,k2,k3,k4;
+	public boolean up,down,left,right,aktion;
+	private int k1,k2,k3,k4,k5;
 
-	public InputHandler(int k1,int k2, int k3,int k4){
+	public InputHandler(int k1,int k2, int k3,int k4, int k5){
 		this.k1=k1;
 		this.k2=k2;
 		this.k3=k3;
 		this.k4=k4;
+		this.k5=k5;
 		
 	}
 	
@@ -28,6 +29,10 @@ public class InputHandler implements KeyListener {
 		if(key==k4){
 			down=true;
 		}
+		if(key==k5){
+			aktion=true;
+		}
+		
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -43,6 +48,9 @@ public class InputHandler implements KeyListener {
 		}
 		if(key==k4){
 			down=false;
+		}
+		if(key==k5){
+			aktion=false;
 		}
 	}
 
