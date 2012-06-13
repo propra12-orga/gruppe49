@@ -12,7 +12,12 @@ public class ExplosionEntity extends Entity{
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
 			if(e != null){				
-				if(x==e.getX()&&y==e.getY()&& e instanceof StoneEntity){
+				if(x==e.getX()&&y==e.getY()&& e instanceof StoneEntity ){
+					StoneEntity st=(StoneEntity)e;
+					if(st.getIsBreakable()){
+						EntityManager.entitylist.remove(e);
+						return true;
+					}
 					return false;
 				}
 			}
