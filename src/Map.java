@@ -22,10 +22,14 @@ public class Map {
 	
 	
 	
-	public boolean isSelected(int n,int m){
+	public int isSelected(int n,int m){
 		if(a[n][m]==1){
-			return true;
-		}else return false;
+			return 1;
+		}
+		if(a[n][m]==2){
+			return 2;
+		}
+		return 0;
 	}
 	
 	

@@ -48,6 +48,7 @@ public class MoveBombermanThread implements Runnable {
 						currentTime2=(int)- System.currentTimeMillis();
 							SetBombThread bombt2=new SetBombThread(h,bombermans[1].getX(),bombermans[1].getY());
 							new Thread(bombt2).start();
+							
 					
 					}
 			

@@ -10,8 +10,16 @@ public class StoneEntity extends Entity{
 	/*
 	 * Hier wird von der Entity Klasse geerbt und mit hilfe der StoneEntity inizialisiert
 	 */
-	public StoneEntity(String src, double x, double y) {
+	private boolean isBreakable;
+	public StoneEntity(String src, double x, double y,boolean isBreakable) {
 		super(src, x, y);
+		this.setIsBreakable(isBreakable);
+	}
+	public boolean getIsBreakable() {
+		return isBreakable;
+	}
+	public void setIsBreakable(boolean isBreakable) {
+		this.isBreakable = isBreakable;
 	}
 
 	

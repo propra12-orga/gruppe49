@@ -37,9 +37,13 @@ public class GamePanel extends JPanel {
 		
 		for(int i=0;i<mp.mapFieldX();i++){
 			for(int j=0;j<mp.mapFieldY();j++){
-				if(mp.isSelected(i, j)){
-				  st=new StoneEntity("stone.png",j*50 ,i*50);
-				  EntityManager.entitylist.add(st);
+				if(mp.isSelected(i, j)==1){
+					st=new StoneEntity("stone.png",j*50 ,i*50,false);
+					EntityManager.entitylist.add(st);
+				}
+				if(mp.isSelected(i, j)==2){
+					st=new StoneEntity("stone2.png",j*50 ,i*50,true);
+					EntityManager.entitylist.add(st);
 				}
 			}
 		}
@@ -80,7 +84,26 @@ public class GamePanel extends JPanel {
 				}
 			}
 		}
+		
+		for(int i=0;i<EntityManager.entityliste1.size();i++){
+			Entity e=EntityManager.entityliste1.get(i);
+			if(e != null){
+				if(e.getSprite().getImage()!=null){
+					g.drawImage(e.getSprite().getImage(), e.getX(), e.getY(), null);
+				}
+			}
+		}
 			
+		for(int i=0;i<EntityManager.entityliste2.size();i++){
+			Entity e=EntityManager.entityliste2.get(i);
+			if(e != null){
+				if(e.getSprite().getImage()!=null){
+					g.drawImage(e.getSprite().getImage(), e.getX(), e.getY(), null);
+				}
+			}
+		}
+		
+		
 		g.dispose();
 		
 	}
