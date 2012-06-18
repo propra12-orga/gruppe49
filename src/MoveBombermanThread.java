@@ -1,4 +1,8 @@
+
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 
 public class MoveBombermanThread implements Runnable {
@@ -19,7 +23,6 @@ public class MoveBombermanThread implements Runnable {
 		int currentTime1=(int)- System.currentTimeMillis();
 		int currentTime2=(int)- System.currentTimeMillis();
 		while(Game.running){
-			
 			try{
 				for(int h=0;h<players.length;h++){
 					BombermanEntity b=bombermans[h];
@@ -48,11 +51,7 @@ public class MoveBombermanThread implements Runnable {
 						currentTime2=(int)- System.currentTimeMillis();
 							SetBombThread bombt2=new SetBombThread(h,bombermans[1].getX(),bombermans[1].getY());
 							new Thread(bombt2).start();
-							
-					
 					}
-			
-		
 				}
 				for(int i=0;i<EntityManager.entitylist.size();i++){
 					Entity e=EntityManager.entitylist.get(i);
@@ -66,6 +65,78 @@ public class MoveBombermanThread implements Runnable {
 				Thread.sleep(80);
 			}catch(Exception e){}
 		}
+		if(!Game.running){
+			ImageIcon icon1 = createImageIcon("Bomberman1.png",null);
+			ImageIcon icon2 = createImageIcon("Bomberman2.png",null);
+			Object[] options = {"Beenden",
+                    "Menue",
+                    "Neustart"};
+			int n=5;
+			if(Game.winner=="Spieler1"){
+				n = JOptionPane.showOptionDialog(Game.gamew,
+					    Game.winner+"hat das Spiel gewonnen.\n "
+					    + "Wollen Sie noch einmal Spielen?",
+					    "Spiel beendet",
+					    JOptionPane.YES_NO_CANCEL_OPTION,
+					    JOptionPane.PLAIN_MESSAGE,
+					    icon1,
+					    options,
+					    options[2]);
+			}
+			
+			if(Game.winner=="Spieler2"){
+				n = JOptionPane.showOptionDialog(Game.gamew,
+					    Game.winner+"hat das Spiel gewonnen.\n "
+					    + "Wollen Sie noch einmal Spielen?",
+					    "Spiel beendet",
+					    JOptionPane.YES_NO_CANCEL_OPTION,
+					    JOptionPane.PLAIN_MESSAGE,
+					    icon2,
+					    options,
+					    options[2]);
+			}
+			
+			
+			if(n==0){
+				System.exit(0);
+			}
+			if(n==1){
+				EntityManager.entitylist.clear();
+				EntityManager.entitylistb1.clear();
+		        EntityManager.entitylistb2.clear();
+		        EntityManager.entityliste1.clear();
+		        EntityManager.entityliste2.clear();
+		        Game.gamew.dispose();
+			}
+			if(n==2){
+				
+				EntityManager.entitylist.clear();
+				EntityManager.entitylistb1.clear();
+		        EntityManager.entitylistb2.clear();
+		        EntityManager.entityliste1.clear();
+		        EntityManager.entityliste2.clear();
+		        Game.gamew.dispose();
+		        Game.running=true;
+				Game.gamew=new GameWindow("Bomberman", 750, 572);
+			}
+			 players=null;
+			 bombermans=null;
+			 comp=null;			
+		}	
 	}
+	
+		protected ImageIcon createImageIcon(String path,
+	            String description) {
+				java.net.URL imgURL = getClass().getResource(path);
+				if (imgURL != null) {
+					return new ImageIcon(imgURL, description);
+				} else {
+					System.err.println("Couldn't find file: " + path);
+					return null;
+				}
+		}
+		
 
+	
+	
 }

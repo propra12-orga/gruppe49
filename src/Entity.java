@@ -1,4 +1,5 @@
 
+
 public class Entity {
 
 	protected double x;

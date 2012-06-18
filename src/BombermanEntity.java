@@ -1,4 +1,5 @@
 
+
 public class BombermanEntity extends Entity {
 	/**
 	 * 
@@ -9,8 +10,18 @@ public class BombermanEntity extends Entity {
 	/*
 	 * Hier wird von der Entity Klasse geerbt und mit hilfe der BombermanEntity inizialisiert
 	 */
-	public BombermanEntity(String src, double x, double y) {
-		super(src, x, y);		
+	private String spieler;
+	public BombermanEntity(String src, double x, double y ,String spieler) {
+		super(src, x, y);	
+		this.setSpieler(spieler);
 	}
+	public String getSpieler() {
+		return spieler;
+	}
+	public void setSpieler(String spieler) {
+		this.spieler = spieler;
+	}
+	
+	
 
 }

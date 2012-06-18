@@ -1,4 +1,5 @@
 
+
 public class Map {
 	private int[][] a;
 	private ReadFile file;
@@ -23,13 +24,7 @@ public class Map {
 	
 	
 	public int isSelected(int n,int m){
-		if(a[n][m]==1){
-			return 1;
-		}
-		if(a[n][m]==2){
-			return 2;
-		}
-		return 0;
+		return a[n][m];
 	}
 	
 	

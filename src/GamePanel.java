@@ -1,6 +1,6 @@
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
@@ -11,18 +11,19 @@ public class GamePanel extends JPanel {
 	 */
 	
 	private static final long serialVersionUID = 1L;
-	private BombermanEntity b=new BombermanEntity("Bomberman1.png", 0, 0);
-	private BombermanEntity b2=new BombermanEntity("Bomberman2.png", 700,500);
+	private BombermanEntity b=new BombermanEntity("Bomberman1.png", 0, 0,"Spieler1");
+	private BombermanEntity b2=new BombermanEntity("Bomberman2.png", 700,500,"Spieler2");
 	private StoneEntity st;
-	private Player p= new Player("Spieler 1",new InputHandler(KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_ENTER));
-	private Player p2= new Player("Spieler 2 ",new InputHandler(KeyEvent.VK_A,KeyEvent.VK_D,KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_SPACE));
+	private Player p= new Player("Spieler 1",new InputHandler(KeyEvent.VK_A,KeyEvent.VK_D,KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_SPACE));
+	private Player p2= new Player("Spieler 2 ",new InputHandler(KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_ENTER));
 	private Player[] players={p,p2};
 	private BombermanEntity[] bombermans={b,b2};
 	private InputHandler input=p.getInputHandler();
 	private Map mp =new Map();
 	private MoveBombermanThread mb=new MoveBombermanThread(players, bombermans, this);
-    public static GamePanel gp;
+	public static GamePanel gp;
 	
+
 
 	public GamePanel(){
 		super();
@@ -31,10 +32,8 @@ public class GamePanel extends JPanel {
 		gp.addKeyListener(p2.getInputHandler());
 		gp.setFocusable(true);
 		new Thread(mb).start();
-		EntityManager.entitylist.add(b);
-		EntityManager.entitylist.add(b2);
 		mp.setMap();
-		
+
 		for(int i=0;i<mp.mapFieldX();i++){
 			for(int j=0;j<mp.mapFieldY();j++){
 				if(mp.isSelected(i, j)==1){
@@ -45,6 +44,17 @@ public class GamePanel extends JPanel {
 					st=new StoneEntity("stone2.png",j*50 ,i*50,true);
 					EntityManager.entitylist.add(st);
 				}
+				if(mp.isSelected(i, j)==3){
+					b.setX(j*50);
+					b.setY(i*50);
+					EntityManager.entitylist.add(b);
+				}
+				if(mp.isSelected(i, j)==4){
+					b2.setX(j*50);
+					b2.setY(i*50);
+					EntityManager.entitylist.add(b2);
+				}
+				
 			}
 		}
 	}
@@ -102,7 +112,6 @@ public class GamePanel extends JPanel {
 				}
 			}
 		}
-		
 		
 		g.dispose();
 		

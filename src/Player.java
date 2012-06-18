@@ -1,4 +1,5 @@
 
+
 public class Player {
 	private String name;
 	private InputHandler input;

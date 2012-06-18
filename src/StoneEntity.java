@@ -1,5 +1,6 @@
 
 
+
 public class StoneEntity extends Entity{
 	/**
 	 * 

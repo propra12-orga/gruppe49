@@ -1,6 +1,8 @@
+
 import java.awt.Color;
 import java.awt.Dimension;
-
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 
@@ -14,7 +16,7 @@ public class GameWindow extends JFrame{
 	private int width;
 	private int height;
 	private Dimension dim;
-	private GamePanel panel;
+	public static GamePanel panel;
 	
 	
 	/**
@@ -42,10 +44,24 @@ public class GameWindow extends JFrame{
 		setMinimumSize(dim);
 		setPreferredSize(dim);
 		add(panel);
-		
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
+		
+		this.addWindowListener(new WindowAdapter() {
+	           public void windowClosing(WindowEvent event) {
+	           Game.winner="";
+	           Game.running=false;
+	           EntityManager.entitylist.clear();
+	           EntityManager.entitylistb1.clear();
+	           EntityManager.entitylistb2.clear();
+	           EntityManager.entityliste1.clear();
+	           EntityManager.entityliste2.clear();
+	           panel.removeAll();
+	           dispose();   
+	            }
+	        }); 
+		
+		
 	}
 }

@@ -1,4 +1,5 @@
 
+
 public class ExplosionEntity extends Entity{
 	
 	
@@ -47,7 +48,21 @@ public class ExplosionEntity extends Entity{
 				}
 			}
 		}
-		
+	}
+
+
+
+	public BombermanEntity killBomberman(int x, int y) {
+		for(int i=0;i<EntityManager.entitylist.size();i++){
+			Entity e=EntityManager.entitylist.get(i);
+			if(e != null){				
+				if(x==e.getX()&&y==e.getY()&& e instanceof BombermanEntity ){
+					BombermanEntity b=(BombermanEntity)e;
+					return b;
+				}
+			}
+		}
+		return null;
 	}
 	
 	
