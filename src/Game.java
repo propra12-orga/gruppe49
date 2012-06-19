@@ -1,4 +1,8 @@
 
+import einspieler.*;
+import zweispieler.*;
+import netzwerkspieler.*;
+
 import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -12,9 +16,11 @@ import javax.swing.JFrame;
 
 public class Game {
 	 final static boolean shouldFill = true;
-	    final static boolean shouldWeightX = true;
-	    final static boolean RIGHT_TO_LEFT = false;
-	   public static GameWindow gamew;
+	   final static boolean shouldWeightX = true;
+	   final static boolean RIGHT_TO_LEFT = false;
+	   public static GameWindowES gamewes;
+	   public static GameWindowZS gamewzs;
+	   public static GameWindowNS gamewns;
 	   public static String winner="";
 	/*
 	*	Boolean variable um zu sehen ob das Spiel am laufen ist 
@@ -59,8 +65,8 @@ public class Game {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//running=true;
-				//gamew=new GameWindow("Bomberman", 750, 572);
+				running=true;
+				gamewes=new GameWindowES("Bomberman", 750, 572);
 			 
 			}
 		});
@@ -79,7 +85,7 @@ public class Game {
 			public void actionPerformed(ActionEvent e) {
 
 				running=true;
-				gamew=new GameWindow("Bomberman", 750, 572);
+				gamewzs=new GameWindowZS("Bomberman", 750, 572);
 
 			}
 		});

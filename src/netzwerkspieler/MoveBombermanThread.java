@@ -1,3 +1,6 @@
+package netzwerkspieler;
+import game.*;
+
 
 
 import javax.swing.ImageIcon;
@@ -73,7 +76,7 @@ public class MoveBombermanThread implements Runnable {
                     "Neustart"};
 			int n=5;
 			if(Game.winner=="Spieler1"){
-				n = JOptionPane.showOptionDialog(Game.gamew,
+				n = JOptionPane.showOptionDialog(Game.gamewns,
 					    Game.winner+"hat das Spiel gewonnen.\n "
 					    + "Wollen Sie noch einmal Spielen?",
 					    "Spiel beendet",
@@ -85,7 +88,7 @@ public class MoveBombermanThread implements Runnable {
 			}
 			
 			if(Game.winner=="Spieler2"){
-				n = JOptionPane.showOptionDialog(Game.gamew,
+				n = JOptionPane.showOptionDialog(Game.gamewns,
 					    Game.winner+"hat das Spiel gewonnen.\n "
 					    + "Wollen Sie noch einmal Spielen?",
 					    "Spiel beendet",
@@ -106,7 +109,7 @@ public class MoveBombermanThread implements Runnable {
 		        EntityManager.entitylistb2.clear();
 		        EntityManager.entityliste1.clear();
 		        EntityManager.entityliste2.clear();
-		        Game.gamew.dispose();
+		        Game.gamewns.dispose();
 			}
 			if(n==2){
 				
@@ -115,9 +118,9 @@ public class MoveBombermanThread implements Runnable {
 		        EntityManager.entitylistb2.clear();
 		        EntityManager.entityliste1.clear();
 		        EntityManager.entityliste2.clear();
-		        Game.gamew.dispose();
+		        Game.gamewns.dispose();
 		        Game.running=true;
-				Game.gamew=new GameWindow("Bomberman", 750, 572);
+				Game.gamewns=new GameWindowNS("Bomberman", 750, 572);
 			}
 			 players=null;
 			 bombermans=null;

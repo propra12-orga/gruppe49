@@ -1,3 +1,5 @@
+package netzwerkspieler;
+import game.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -6,7 +8,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 
-public class GameWindow extends JFrame{
+public class GameWindowNS extends JFrame{
 
 	/*
 	 * GameWindow enthält die Weite,die Höhe, die Dimension und das GamePanel 
@@ -31,7 +33,7 @@ public class GameWindow extends JFrame{
 	 * Fenster ist nicht veränderbar
 	 * 
 	 */
-	public GameWindow(String title,int width,int height){
+	public GameWindowNS(String title,int width,int height){
 		super(title);
 		this.width=width;
 		this.height=height;

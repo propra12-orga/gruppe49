@@ -1,3 +1,6 @@
+package einspieler;
+
+import Entity;
 
 
 public class BombEntity extends Entity {

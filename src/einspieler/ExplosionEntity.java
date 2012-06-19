@@ -1,3 +1,7 @@
+package einspieler;
+
+import Entity;
+import bomberman.BombermanEntity;
 
 
 public class ExplosionEntity extends Entity{

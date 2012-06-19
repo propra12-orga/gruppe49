@@ -1,7 +1,12 @@
+package einspieler;
+
+import Entity;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
+
+import bomberman.BombermanEntity;
 
 public class GamePanel extends JPanel {
 	/*

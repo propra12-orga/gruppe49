@@ -1,3 +1,6 @@
+package bomberman;
+
+import Entity;
 
 
 public class BombermanEntity extends Entity {

@@ -1,9 +1,4 @@
-
-
-import einspieler.EntityManager;
-import einspieler.GamePanel;
-import einspieler.Sprite;
-
+package netzwerkspieler;
 
 
 public class Entity {

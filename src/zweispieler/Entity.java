@@ -1,9 +1,4 @@
-
-
-import einspieler.EntityManager;
-import einspieler.GamePanel;
-import einspieler.Sprite;
-
+package zweispieler;
 
 
 public class Entity {

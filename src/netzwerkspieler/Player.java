@@ -1,3 +1,4 @@
+package netzwerkspieler;
 
 
 public class Player {
