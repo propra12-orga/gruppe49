@@ -1,11 +1,8 @@
 
-
 import java.awt.Image;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;
-
-import einspieler.Sprite;
 
 
 public class SpriteManager {

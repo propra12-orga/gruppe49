@@ -1,11 +1,5 @@
 
 
-import einspieler.EntityManager;
-import einspieler.GamePanel;
-import einspieler.Sprite;
-
-
-
 public class Entity {
 
 	protected double x;
@@ -63,9 +57,9 @@ public class Entity {
 	 * Bewegt das Objekt auf der x Achse 
 	 */
 	public void moveOnX(){
-		if(GamePanel.gp.getWidth() !=0){
+		if(GamePanel1.gp.getWidth() !=0){
 			if(x+mx<0 )x=0;
-			else if(x+mx>GamePanel.gp.getWidth()-sprite.getWidth())x=GamePanel.gp.getWidth()-sprite.getWidth();
+			else if(x+mx>GamePanel1.gp.getWidth()-sprite.getWidth())x=GamePanel1.gp.getWidth()-sprite.getWidth();
 			else x+=mx;
 		}
 	}
@@ -73,9 +67,9 @@ public class Entity {
 	 * Bewegt das Objekt in der y Achse
 	 */
 	public void moveOnY(){
-		if(GamePanel.gp.getHeight() !=0){
+		if(GamePanel1.gp.getHeight() !=0){
 			if(y+my<0 )y=0;
-			else if(y+my>GamePanel.gp.getHeight()-sprite.getHeight())y=GamePanel.gp.getHeight()-sprite.getHeight();
+			else if(y+my>GamePanel1.gp.getHeight()-sprite.getHeight())y=GamePanel1.gp.getHeight()-sprite.getHeight();
 			else y+=my;
 		}
 	}
@@ -108,7 +102,7 @@ public class Entity {
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
 			if(e != null){
-				if(x-step==e.getX()&&y==e.getY()){
+				if(x-step==e.getX()&&y==e.getY()&& !(e instanceof ExitEntity)){
 					return false;
 				}
 			}
@@ -140,7 +134,7 @@ public class Entity {
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
 			if(e != null){
-				if(x+step==e.getX()&&y==e.getY()){
+				if(x+step==e.getX()&&y==e.getY()&& !(e instanceof ExitEntity)){
 					return false;
 				}
 			}
@@ -175,7 +169,7 @@ public class Entity {
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
 			if(e != null){
-				if(y-step==e.getY()&&x==e.getX()){
+				if(y-step==e.getY()&&x==e.getX()&& !(e instanceof ExitEntity)){
 					return false;
 				}
 			}
@@ -208,7 +202,7 @@ public class Entity {
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
 			if(e != null){
-				if(y+step==e.getY()&&x==e.getX()){
+				if(y+step==e.getY()&&x==e.getX()&& !(e instanceof ExitEntity)){
 					return false;
 				}
 			}
@@ -235,6 +229,7 @@ public class Entity {
 		
 		return true;
 	}
+	
 	
 
 	
