@@ -19,7 +19,7 @@ public class SetBombThread implements Runnable {
 		try{
 			if(spieler==0){
 				EntityManager.entitylistb1.add(bomb);
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				if(bomb.getIsAlive()){
 					EntityManager.entitylistb1.remove(bomb);
 					new Thread(new ExplosionThread(spieler,x,y)).start();
@@ -27,7 +27,7 @@ public class SetBombThread implements Runnable {
 			}
 			if(spieler==1){
 				EntityManager.entitylistb2.add(bomb);
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				if(bomb.getIsAlive()){
 					EntityManager.entitylistb2.remove(bomb);
 					new Thread(new ExplosionThread(spieler,x,y)).start();

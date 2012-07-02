@@ -5,7 +5,7 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 
-public class MoveBombermanThread implements Runnable {
+public class MoveBombermanThread2 implements Runnable {
 
 	private Player[] players;
 	private BombermanEntity[] bombermans;
@@ -13,7 +13,7 @@ public class MoveBombermanThread implements Runnable {
 	private int step=50;
 
 	
-	public MoveBombermanThread(Player[] players,BombermanEntity[] bombermans,JComponent comp){
+	public MoveBombermanThread2(Player[] players,BombermanEntity[] bombermans,JComponent comp){
 		 this.players=players;
 		 this.bombermans=bombermans;
 		 this.comp=comp;
@@ -117,7 +117,7 @@ public class MoveBombermanThread implements Runnable {
 		        EntityManager.entityliste2.clear();
 		        Game.gamew.dispose();
 		        Game.running=true;
-				Game.gamew=new GameWindow("Bomberman", 750, 572);
+				Game.gamew=new GameWindow("Bomberman", 750, 572,2);
 			}
 			 players=null;
 			 bombermans=null;

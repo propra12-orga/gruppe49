@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel {
+public class GamePanel2 extends JPanel {
 	/*
 	 *Diese Klasse setzt das Spielfeld und ist für das Zeichnen zuständig
 	 *Dies geschied durch hinzufügen der Entity Objekte in die Entitylist des EntityManagers 
@@ -18,17 +18,16 @@ public class GamePanel extends JPanel {
 	private Player p2= new Player("Spieler 2 ",new InputHandler(KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_ENTER));
 	private Player[] players={p,p2};
 	private BombermanEntity[] bombermans={b,b2};
-	private InputHandler input=p.getInputHandler();
-	private Map mp =new Map();
-	private MoveBombermanThread mb=new MoveBombermanThread(players, bombermans, this);
-	public static GamePanel gp;
+	private Map mp =new Map(2);
+	private MoveBombermanThread2 mb=new MoveBombermanThread2(players, bombermans, this);
+	public static GamePanel2 gp;
 	
 
 
-	public GamePanel(){
+	public GamePanel2(){
 		super();
 		gp=this;
-		gp.addKeyListener(input);
+		gp.addKeyListener(p.getInputHandler());
 		gp.addKeyListener(p2.getInputHandler());
 		gp.setFocusable(true);
 		new Thread(mb).start();

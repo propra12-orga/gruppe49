@@ -16,8 +16,8 @@ public class GameWindow extends JFrame{
 	private int width;
 	private int height;
 	private Dimension dim;
-	public static GamePanel panel;
-	
+	public static GamePanel1 panel1;
+	public static GamePanel2 panel2;
 	
 	/**
 	 * @param title Gibt den Title des Fensters an
@@ -31,19 +31,31 @@ public class GameWindow extends JFrame{
 	 * Fenster ist nicht veränderbar
 	 * 
 	 */
-	public GameWindow(String title,int width,int height){
+	public GameWindow(String title,int width,int height,final int modus){
 		super(title);
 		this.width=width;
 		this.height=height;
 		dim=new Dimension(this.width,this.height);
 		
-		panel=new GamePanel();
-		panel.setBackground(Color.black);
+		if(modus==1){
+			panel1=new GamePanel1();
+			panel1.setBackground(Color.black);
+		}
+		else if(modus==2){
+			panel2=new GamePanel2();
+			panel2.setBackground(Color.black);
+		}
+
 		
 		setMaximumSize(dim);
 		setMinimumSize(dim);
 		setPreferredSize(dim);
-		add(panel);
+		if(modus==1){
+			add(panel1);
+		}else if(modus==2){
+			add(panel2);
+		}
+		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
@@ -57,7 +69,11 @@ public class GameWindow extends JFrame{
 	           EntityManager.entitylistb2.clear();
 	           EntityManager.entityliste1.clear();
 	           EntityManager.entityliste2.clear();
-	           panel.removeAll();
+	           if(modus==1){
+	        	   panel1.removeAll(); 
+	           }else if(modus==2){
+	        	   panel2.removeAll(); 
+	           }
 	           dispose();   
 	            }
 	        }); 
