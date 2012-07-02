@@ -18,7 +18,6 @@ public class GamePanel2 extends JPanel {
 	private Player p2= new Player("Spieler 2 ",new InputHandler(KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_ENTER));
 	private Player[] players={p,p2};
 	private BombermanEntity[] bombermans={b,b2};
-	private InputHandler input=p.getInputHandler();
 	private Map mp =new Map(2);
 	private MoveBombermanThread2 mb=new MoveBombermanThread2(players, bombermans, this);
 	public static GamePanel2 gp;
@@ -28,7 +27,7 @@ public class GamePanel2 extends JPanel {
 	public GamePanel2(){
 		super();
 		gp=this;
-		gp.addKeyListener(input);
+		gp.addKeyListener(p.getInputHandler());
 		gp.addKeyListener(p2.getInputHandler());
 		gp.setFocusable(true);
 		new Thread(mb).start();
