@@ -26,6 +26,7 @@ public class ReadFile {
 			while((line=br.readLine())!=null){
 				buffer+=line;
 				n++;
+				
 			}
 			m=buffer.length()/n;
 			a= new int[n][m];

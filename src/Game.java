@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
+import createMap.*;
 
 public class Game {
 	 final static boolean shouldFill = true;
@@ -38,7 +38,7 @@ public class Game {
 	            pane.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 	        }
 	 
-	        JButton button1,button2,button3,button4;
+	        JButton button1,button2,button3,button4,button5;
 	    pane.setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    if (shouldFill) {
@@ -118,6 +118,25 @@ public class Game {
 			public void actionPerformed(ActionEvent e) {
 
 				System.exit(0);
+
+			}
+		});
+	    
+	    
+	    //Button 4 
+	     button5 = new JButton("Map erzeugen");
+	    c.fill = GridBagConstraints.HORIZONTAL;
+	    c.weightx = 0.5;
+	    c.gridx = 4;
+	    c.gridy = 0;
+	    pane.add(button5, c);
+	    
+	    button5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				new CMap("Map erzeuegen",750, 572);
 
 			}
 		});
