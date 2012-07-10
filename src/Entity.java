@@ -57,9 +57,9 @@ public class Entity {
 	 * Bewegt das Objekt auf der x Achse 
 	 */
 	public void moveOnX(){
-		if(GamePanel1.gp.getWidth() !=0){
+		if(GamePanel.gp.getWidth() !=0){
 			if(x+mx<0 )x=0;
-			else if(x+mx>GamePanel1.gp.getWidth()-sprite.getWidth())x=GamePanel1.gp.getWidth()-sprite.getWidth();
+			else if(x+mx>GamePanel.gp.getWidth()-sprite.getWidth())x=GamePanel.gp.getWidth()-sprite.getWidth();
 			else x+=mx;
 		}
 	}
@@ -67,9 +67,9 @@ public class Entity {
 	 * Bewegt das Objekt in der y Achse
 	 */
 	public void moveOnY(){
-		if(GamePanel1.gp.getHeight() !=0){
+		if(GamePanel.gp.getHeight() !=0){
 			if(y+my<0 )y=0;
-			else if(y+my>GamePanel1.gp.getHeight()-sprite.getHeight())y=GamePanel1.gp.getHeight()-sprite.getHeight();
+			else if(y+my>GamePanel.gp.getHeight()-sprite.getHeight())y=GamePanel.gp.getHeight()-sprite.getHeight();
 			else y+=my;
 		}
 	}

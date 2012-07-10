@@ -3,10 +3,11 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 
-public class GamePanel2 extends JPanel {
+public class GamePanel extends JPanel {
 	/*
-	 *Diese Klasse setzt das Spielfeld und ist für das Zeichnen zuständig
-	 *Dies geschied durch hinzufügen der Entity Objekte in die Entitylist des EntityManagers 
+	 *Diese Klasse setzt das Spielfeld und ist fuer das Zeichnen zustaendig
+	 *Dies geschied durch hinzufuegen der Entity Objekte in die Entitylist des
+	 * EntityManagers 
 	 *Sie werden dann durch eine for Schleife auf das Spielfeld gezeichnet     
 	 */
 	
@@ -18,20 +19,40 @@ public class GamePanel2 extends JPanel {
 	private Player p2= new Player("Spieler 2 ",new InputHandler(KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_ENTER));
 	private Player[] players={p,p2};
 	private BombermanEntity[] bombermans={b,b2};
-	private Map mp =new Map(2);
-	private MoveBombermanThread2 mb=new MoveBombermanThread2(players, bombermans, this);
-	public static GamePanel2 gp;
+	private InputHandler input=p.getInputHandler();
+	private Map mp =new Map(GameWindow.modus);
+	private ExitEntity exit;
+	private MoveBombermanThread mb=new MoveBombermanThread(players, bombermans, this);
+	public static GamePanel gp;
 	
 
 
-	public GamePanel2(){
+	public GamePanel(){
 		super();
 		gp=this;
-		gp.addKeyListener(p.getInputHandler());
+		gp.addKeyListener(input);
+		if(GameWindow.modus==2){
 		gp.addKeyListener(p2.getInputHandler());
+		}
 		gp.setFocusable(true);
 		new Thread(mb).start();
 		mp.setMap();
+
+		
+		if(GameWindow.modus==1){
+			for(int i=0;i<mp.mapFieldX();i++){
+				for(int j=0;j<mp.mapFieldY();j++){
+					if(mp.isSelected(i, j)==4){
+						exit=new ExitEntity("exit.png",j*50 ,i*50);
+						EntityManager.entitylist.add(exit);
+						
+					}
+				}
+			}
+
+			mp.setModus(2);
+			mp.setMap();	
+		}
 
 		for(int i=0;i<mp.mapFieldX();i++){
 			for(int j=0;j<mp.mapFieldY();j++){
@@ -48,7 +69,8 @@ public class GamePanel2 extends JPanel {
 					b.setY(i*50);
 					EntityManager.entitylist.add(b);
 				}
-				if(mp.isSelected(i, j)==4){
+				
+				if(mp.isSelected(i, j)==4&&GameWindow.modus==2){
 					b2.setX(j*50);
 					b2.setY(i*50);
 					EntityManager.entitylist.add(b2);

@@ -5,7 +5,7 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 
-public class MoveBombermanThread2 implements Runnable {
+public class MoveBombermanThread implements Runnable {
 
 	private Player[] players;
 	private BombermanEntity[] bombermans;
@@ -13,7 +13,7 @@ public class MoveBombermanThread2 implements Runnable {
 	private int step=50;
 
 	
-	public MoveBombermanThread2(Player[] players,BombermanEntity[] bombermans,JComponent comp){
+	public MoveBombermanThread(Player[] players,BombermanEntity[] bombermans,JComponent comp){
 		 this.players=players;
 		 this.bombermans=bombermans;
 		 this.comp=comp;
@@ -60,6 +60,18 @@ public class MoveBombermanThread2 implements Runnable {
 						if(e.getVerticalMovement()!=0) e.moveOnY();
 					}
 				}
+				
+				if(GameWindow.modus==1){
+					for(int i=0;i<EntityManager.entitylist.size();i++){
+						Entity e=EntityManager.entitylist.get(i);
+						if(e != null){
+							if(e instanceof ExitEntity && bombermans[0].getX()==e.getX()&&bombermans[0].getY()==e.getY()){
+								Game.winner="Spieler1";
+								Game.running=false;
+							}
+						}
+					}
+					}
 
 				comp.repaint();
 				Thread.sleep(80);
@@ -74,7 +86,7 @@ public class MoveBombermanThread2 implements Runnable {
 			int n=5;
 			if(Game.winner=="Spieler1"){
 				n = JOptionPane.showOptionDialog(Game.gamew,
-					    Game.winner+"hat das Spiel gewonnen.\n "
+					    Game.winner+" hat das Spiel gewonnen.\n "
 					    + "Wollen Sie noch einmal Spielen?",
 					    "Spiel beendet",
 					    JOptionPane.YES_NO_CANCEL_OPTION,
@@ -86,7 +98,7 @@ public class MoveBombermanThread2 implements Runnable {
 			
 			if(Game.winner=="Spieler2"){
 				n = JOptionPane.showOptionDialog(Game.gamew,
-					    Game.winner+"hat das Spiel gewonnen.\n "
+					    Game.winner+" hat das Spiel gewonnen.\n "
 					    + "Wollen Sie noch einmal Spielen?",
 					    "Spiel beendet",
 					    JOptionPane.YES_NO_CANCEL_OPTION,
@@ -117,7 +129,7 @@ public class MoveBombermanThread2 implements Runnable {
 		        EntityManager.entityliste2.clear();
 		        Game.gamew.dispose();
 		        Game.running=true;
-				Game.gamew=new GameWindow("Bomberman", 750, 572,2);
+				Game.gamew=new GameWindow("Bomberman", 750, 572,1);
 			}
 			 players=null;
 			 bombermans=null;

@@ -12,10 +12,10 @@ import createMap.*;
 
 public class Game {
 	 final static boolean shouldFill = true;
-	    final static boolean shouldWeightX = true;
-	    final static boolean RIGHT_TO_LEFT = false;
-	   public static GameWindow gamew;
-	   public static String winner="";
+	 final static boolean shouldWeightX = true;
+	 final static boolean RIGHT_TO_LEFT = false;
+	 public static GameWindow gamew;
+	 public static String winner="";
 	/*
 	*	Boolean variable um zu sehen ob das Spiel am laufen ist 
 	*/
@@ -60,7 +60,7 @@ public class Game {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				running=true;
-				gamew=new GameWindow("Bomberman", 750, 572,1);
+				gamew=new GameWindow("Bomberman", 750, 550,1);
 			 
 			}
 		});
@@ -78,7 +78,7 @@ public class Game {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				running=true;
-				gamew=new GameWindow("Bomberman", 750, 572,2);
+				gamew=new GameWindow("Bomberman", 750, 550,2);
 			}
 		});
 	    
