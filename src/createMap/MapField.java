@@ -14,22 +14,29 @@ public class MapField extends JPanel {
 	public static MapField mf;
 	public static InputListener input=new InputListener();
 	private MapSet ms=new MapSet(this);
+	/*
+	 * Die Mapfield klasse ist fuer das zeichnen der mapcreate fenster zusteandig 
+	 */
 	public MapField(){
 		super();
 		mf=this;
+		//fuegt einen mouslistener hinzu
 		mf.addMouseListener(input);
 		mf.setFocusable(true);
+		//Startet den Mapsetmodus
 		new Thread(ms).start();
 	}
 	public void paint(Graphics g){
 		super.paint(g);
 		g.setColor(Color.red);
+		//rote trennlinien
 		for(int i=1;i<=15;i++){
 		g.drawLine(50*i, 0, 50*i, 570);
 		}
 		for(int i=1;i<=15;i++){
 		g.drawLine(0, 50*i, 750, 50*i);
 		}
+		//Buttons fur die ausswahl
 		g.drawRect(760, 50, 180, 50);
 		g.drawRect(760, 150, 180, 50);
 		g.drawRect(760, 250, 180, 50);

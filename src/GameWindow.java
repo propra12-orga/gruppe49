@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 public class GameWindow extends JFrame{
 
 	/*
-	 * GameWindow enthaelt die Weite,die Hoehe, die Dimension und das GamePanel 
+	 * GameWindow enthält die Weite,die Höhe, die Dimension und das GamePanel 
 	 * GameWindow erbt von JFRAME
 	 */
 	private static final long serialVersionUID = 1L;
@@ -48,6 +48,7 @@ public class GameWindow extends JFrame{
 		setResizable(false);
 		setVisible(true);
 		
+		//Diese methode setzt alles auf null falls das fenster geschlossen wird
 		this.addWindowListener(new WindowAdapter() {
 	           public void windowClosing(WindowEvent event) {
 	           Game.winner="";

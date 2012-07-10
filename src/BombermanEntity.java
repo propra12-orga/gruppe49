@@ -3,7 +3,7 @@
 public class BombermanEntity extends Entity {
 	/**
 	 * 
-	 * @param src Pfad zum Bomberman Bild
+	 * @param src Phad zum Bomberman Bild
 	 * @param x	X Position des Bombermans
 	 * @param y Y Position des Bombermans
 	 */
@@ -15,9 +15,17 @@ public class BombermanEntity extends Entity {
 		super(src, x, y);	
 		this.setSpieler(spieler);
 	}
+	/**
+	 * 
+	 * @return string Spieler gibt spieler als string zurück
+	 */
 	public String getSpieler() {
 		return spieler;
 	}
+	/**
+	 * 
+	 * @param spieler string spieler setzt spieler bezeichnung
+	 */
 	public void setSpieler(String spieler) {
 		this.spieler = spieler;
 	}

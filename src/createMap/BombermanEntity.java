@@ -1,6 +1,5 @@
 package createMap;
 
-
 public class BombermanEntity extends Entity {
 	/**
 	 * 
@@ -16,9 +15,17 @@ public class BombermanEntity extends Entity {
 		super(src, x, y);	
 		this.setSpieler(spieler);
 	}
+	/**
+	 * 
+	 * @return string Spieler gibt spieler als string zurück
+	 */
 	public String getSpieler() {
 		return spieler;
 	}
+	/**
+	 * 
+	 * @param spieler string spieler setzt spieler bezeichnung
+	 */
 	public void setSpieler(String spieler) {
 		this.spieler = spieler;
 	}

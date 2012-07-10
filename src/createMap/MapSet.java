@@ -12,7 +12,13 @@ public class MapSet implements Runnable{
 	private boolean fertig;
 	private boolean reset;
 	private JComponent comp;
-	
+	/*
+	 * Diese klasse ist fuer das setzen der stein zusteandig
+	 */
+	/**
+	 * 
+	 * @param comp die komponente
+	 */
 	public MapSet(JComponent comp){
 		this.input=MapField.input;
 		b1=false;

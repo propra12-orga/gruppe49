@@ -6,7 +6,18 @@ public class SetBombThread implements Runnable {
 	private int x,y;
 	private int spieler;
 	private BombEntity bomb;
+	/*
+	 * Dieser thred ist fuer das legen einer Bombe zusteandig die nach einer 
+	 * bestimmten zeit platzt oder durch eine kettenreaktion von einem anderen
+	 * thread zum platzen gebracht wird und nicht mehr von diesem thread esplidiert
+	 */
 	
+	/**
+	 * 
+	 * @param spieler name des spielers
+	 * @param x position x
+	 * @param y posutuin y
+	 */
 	public SetBombThread(int spieler,int x,int y){
 		this.spieler=spieler;
 		this.x=x;

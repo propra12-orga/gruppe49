@@ -16,9 +16,17 @@ public class StoneEntity extends Entity{
 		super(src, x, y);
 		this.setIsBreakable(isBreakable);
 	}
+	/**
+	 * 
+	 * @return gibt true falls zerbrechlicher stein false falls nicht
+	 */
 	public boolean getIsBreakable() {
 		return isBreakable;
 	}
+	/**
+	 * 
+	 * @param isBreakable setze stein auf zerbrechlich
+	 */
 	public void setIsBreakable(boolean isBreakable) {
 		this.isBreakable = isBreakable;
 	}

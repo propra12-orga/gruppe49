@@ -7,13 +7,25 @@ public class ExplosionThread implements Runnable {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param spieler int spieler
+	 * @param x
+	 * @param y
+	 */
 	public ExplosionThread(int spieler,int x,int y){
 		this.spieler=spieler;
 		this.x=x;
 		this.y=y;
 	}
-	
+	/*
+	 * Dies ist die run Methode und wird durch das starten des Threads ausgeloest
+	 * In dieser Methode koennen spieler 1 und zwei bombem legen die nach einer bestimmten zeit explodieren 
+	 * Diese methode schaut ob ein Stein explodieren kann oder nicht wenn ja dann wird dieser stein gelšscht
+	 * Desweiteren wird ueberprueft ob ein spieler durch eine explosion getroffen wurde wenn ja wird das spiel beendet
+	 * (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	public void run() {
 		
 		try {

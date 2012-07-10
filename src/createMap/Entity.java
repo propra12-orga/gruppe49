@@ -32,19 +32,32 @@ public class Entity {
 		return sprite;
 	}
 	
+	/**
+	 * 
+	 * @return int x git die x position wieder
+	 */
 	public int getX() {
 		return (int)x;
 	}
-	
+	/**
+	 * 
+	 * @return int y git y position wieder
+	 */
 	public int getY() {
 		return (int)y;
 	}
-	
+	/**
+	 * 
+	 * @param x int x setzt die x position
+	 */
 	public void setX(int x){
 		this.x=x;
 	}
 
-	
+	/**
+	 * 
+	 * @param y int y setzt die y position
+	 */
 	public void setY(int y){
 		this.y=y;
 	}

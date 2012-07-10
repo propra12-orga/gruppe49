@@ -1,7 +1,7 @@
 
 
 public class Entity {
-	
+
 	protected double x;
 	protected double y;
 	protected double mx;
@@ -14,7 +14,7 @@ public class Entity {
 	
 	/**
 	 * 
-	 * @param src holt das bild mit Hilfe der Sprite Klasse und speichert es ab 
+	 * @param src holt das bild mithilfe der Sprite Klasse und speicherd es ab 
 	 * @param x  Setzt die X Position von dem Entity Objekt
 	 * @param y  Setzt Y Position von dem Entity Objekt
 	 */
@@ -81,23 +81,43 @@ public class Entity {
 		return sprite;
 	}
 	
+	/**
+	 * 
+	 * @return int x git die x position wieder
+	 */
 	public int getX() {
 		return (int)x;
 	}
-	
+	/**
+	 * 
+	 * @return int y git y position wieder
+	 */
 	public int getY() {
 		return (int)y;
 	}
-	
+	/**
+	 * 
+	 * @param x int x setzt die x position
+	 */
 	public void setX(int x){
 		this.x=x;
 	}
 
-	
+	/**
+	 * 
+	 * @param y int y setzt die y position
+	 */
 	public void setY(int y){
 		this.y=y;
 	}
-	
+	/*
+	 * Diese Methoden schauten ob sich der Bomberman um einen bestimmen step in eine richtung gehen kann
+	 */
+	/**
+	 * 
+	 * @param step int step schrittweite nach links geprueft werden soll
+	 * @return  boolen true wenn bewegung erlaubt , false wenn bewegung nicht erlaubt 
+	 */
 	public boolean canMoveLeft(int step){
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
@@ -129,7 +149,11 @@ public class Entity {
 		
 		return true;
 	}
-
+	/**
+	 * 
+	 * @param step int step schrittweite nach rechts geprueft werden soll
+	 * @return  boolen true wenn bewegung erlaubt , false wenn bewegung nicht erlaubt 
+	 */
 	public boolean canMoveRight(int step){
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
@@ -164,7 +188,11 @@ public class Entity {
 		
 		return true;
 	}
-	
+	/**
+	 * 
+	 * @param step int step schrittweite nach oben geprueft werden soll
+	 * @return  boolen true wenn bewegung erlaubt , false wenn bewegung nicht erlaubt 
+	 */
 	public boolean canMoveUP(int step){
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);
@@ -197,7 +225,11 @@ public class Entity {
 		
 		return true;
 	}
-	
+	/**
+	 * 
+	 * @param step int step schrittweite nach unten geprueft werden soll
+	 * @return  boolen true wenn bewegung erlaubt , false wenn bewegung nicht erlaubt 
+	 */
 	public boolean canMoveDown(int step){
 		for(int i=0;i<EntityManager.entitylist.size();i++){
 			Entity e=EntityManager.entitylist.get(i);

@@ -17,35 +17,30 @@ public class Game {
 	 public static GameWindow gamew;
 	 public static String winner="";
 	/*
-	*	Boolean Variable, um zu sehen, ob das Spiel am laufen ist 
+	*	Boolean variable um zu sehen ob das Spiel am laufen ist 
 	*/
 	public static boolean running=false;
 	
 	
 	/*
-	 * Setzt Das Spiel auf laufen und oeffnet ein neues SpielFenster
+	 * Setzt Das spiel auf laufen und šffnet ein neues SpielFenster
 	 */
 	public static void main(String[] args) {
 		running=true;
 		createAndShowGUI();
 		
 	}
-
-	
-	
-	   public static void addComponentsToPane(Container pane) {
-	        if (RIGHT_TO_LEFT) {
-	            pane.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-	        }
-	 
-	        JButton button1,button2,button3,button4,button5;
+	public static void addComponentsToPane(Container pane) {
+		if (RIGHT_TO_LEFT) {
+	         pane.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+	     }
+		JButton button1,button2,button3,button4,button5;
 	    pane.setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    if (shouldFill) {
-	    //normale Hoehe, maximale Weite
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    }
-	 
+	    //Schaltfleache 1 Einspieler
 	    button1 = new JButton("Einspieler");
 	    if (shouldWeightX) {
 	    c.weightx = 0.5;
@@ -65,7 +60,7 @@ public class Game {
 			}
 		});
 	    
-	  //Button2
+	  //Schaltfleache 2 Zweispieler
 	    button2 = new JButton("Zweispieler");
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    c.weightx = 0.5;
@@ -82,8 +77,8 @@ public class Game {
 			}
 		});
 	    
-	    //Button2
-	    button3 = new JButton("Dokumentation");
+	  //Schaltfleache 3 Handbuch
+	    button3 = new JButton("Handbuch");
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    c.weightx = 0.5;
 	    c.gridx = 2;
@@ -99,12 +94,8 @@ public class Game {
 
 			}
 		});
-	    
-	    
-	    
-	    
-	    
-	    //Button 3 
+
+	  //Schaltfleache 4 Beenden
 	     button4 = new JButton("Beenden");
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    c.weightx = 0.5;
@@ -123,7 +114,7 @@ public class Game {
 		});
 	    
 	    
-	    //Button 4 
+	  //Schaltfleache 5 Map erzeugen
 	     button5 = new JButton("Map erzeugen");
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    c.weightx = 0.5;
@@ -140,26 +131,18 @@ public class Game {
 
 			}
 		});
-		
-	 
-	 
 	    }
 	
 	
-	
-	
-	
-	
     private static void createAndShowGUI() {
-        //erstellt und setzt das fenster
+        //Erzeugt das Fenster
         JFrame frame = new JFrame("Bomberman");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
-       
+        //Setzt das contentpane
         addComponentsToPane(frame.getContentPane());
  
-        //oeffnet das fenster
-        
+        //Zeigt das Fenster
         frame.pack();
         frame.setVisible(true);
         frame.setSize(570, 572);

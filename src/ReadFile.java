@@ -12,10 +12,22 @@ public class ReadFile {
 	private int [][]a;
 	private int n,m;
 	
+	/*
+	 * Diese Klasse is fuer das einlesen der map txt dateien zusteandig
+	 */
+	
+	/**
+	 * 
+	 * @param fileName name der datei
+	 */
 	public ReadFile(String fileName){
 		myFile =new File(fileName);
 	}
 	
+	/**
+	 * 
+	 * @return gibt ein int array zurueck in dem das spielfeld drinne ist
+	 */
 	public int[][] getContent(){
 		String buffer="";
 		String line="";
@@ -45,9 +57,17 @@ public class ReadFile {
 		return a;
 	}
 	
+	/**
+	 * 
+	 * @return gibt dimension x des array zurueck
+	 */
 	public int getDimX(){
 		return n;
 	}
+	/**
+	 * 
+	 * @return gibt dimension y des array zurueck
+	 */
 	public int getDimY(){
 		return m;
 	}

@@ -1,7 +1,4 @@
-/*
- * Hier wird auf die Dokmentation zugegriffen
- * 
- */
+
 
 import java.awt.Dimension;
 
@@ -18,13 +15,13 @@ import javax.swing.JScrollPane;
 
 
 public class Dokumentation {
-	
+	/*
+	 * Die Show Methode macht eine HTML Datei in einem JFrame auf
+	 */
 	
 	public static void show(){
-		
 
-		
-		 //Create an editor pane.
+		 //Erzeugt ein editorpane
         JEditorPane editorPane = createEditorPane();
         JScrollPane editorScrollPane = new JScrollPane(editorPane);
         editorScrollPane.setVerticalScrollBarPolicy(
@@ -32,18 +29,15 @@ public class Dokumentation {
         editorScrollPane.setPreferredSize(new Dimension(250, 145));
         editorScrollPane.setMinimumSize(new Dimension(10, 10));
  
-        //Create a text pane.
+        //Erzeugt ein Textpane
         JTextPane textPane = new JTextPane();
         JScrollPane paneScrollPane = new JScrollPane(textPane);
         paneScrollPane.setVerticalScrollBarPolicy(
                         JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         paneScrollPane.setPreferredSize(new Dimension(250, 155));
         paneScrollPane.setMinimumSize(new Dimension(10, 10));
- 
-      
-      
-       
- 
+
+        
         JFrame frame = new JFrame("Dokumentation");
         frame.add(editorScrollPane);
         frame.pack();
@@ -63,10 +57,10 @@ public class Dokumentation {
 	            try {
 	                editorPane.setPage(helpURL);
 	            } catch (IOException e) {
-	                System.err.println("Attempted to read a bad URL: " + helpURL);
+	                System.err.println("Error: " + helpURL);
 	            }
 	        } else {
-	            System.err.println("Couldn't find file: dokumentation.html");
+	            System.err.println("Konnte nicht finden: dokumentation.html");
 	        }
 	 
 	        return editorPane;

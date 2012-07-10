@@ -10,7 +10,7 @@ public class GamePanel extends JPanel {
 	 * EntityManagers 
 	 *Sie werden dann durch eine for Schleife auf das Spielfeld gezeichnet     
 	 */
-	
+
 	private static final long serialVersionUID = 1L;
 	private BombermanEntity b=new BombermanEntity("Bomberman1.png", 0, 0,"Spieler1");
 	private BombermanEntity b2=new BombermanEntity("Bomberman2.png", 700,500,"Spieler2");
@@ -25,20 +25,20 @@ public class GamePanel extends JPanel {
 	private MoveBombermanThread mb=new MoveBombermanThread(players, bombermans, this);
 	public static GamePanel gp;
 	
-
-
 	public GamePanel(){
 		super();
 		gp=this;
+		//Hier werden die Keylistener gesetzt
 		gp.addKeyListener(input);
 		if(GameWindow.modus==2){
 		gp.addKeyListener(p2.getInputHandler());
 		}
 		gp.setFocusable(true);
+		//hier wird der Thread gestartet um die bomberman zu bewegen
 		new Thread(mb).start();
 		mp.setMap();
 
-		
+		//die Map wird erzeugt fuer einspieler nur exit
 		if(GameWindow.modus==1){
 			for(int i=0;i<mp.mapFieldX();i++){
 				for(int j=0;j<mp.mapFieldY();j++){
@@ -53,7 +53,7 @@ public class GamePanel extends JPanel {
 			mp.setModus(2);
 			mp.setMap();	
 		}
-
+		//normaler mapmodus und ergeanzung des 1 spieler mapmoduses
 		for(int i=0;i<mp.mapFieldX();i++){
 			for(int j=0;j<mp.mapFieldY();j++){
 				if(mp.isSelected(i, j)==1){
@@ -82,6 +82,7 @@ public class GamePanel extends JPanel {
 	
 	
 	/*
+	 * Hier werden die Entitys von den Entitylisten gezeichnet
 	 * (non-Javadoc)
 	 * @see javax.swing.JComponent#paint(java.awt.Graphics) 
 	 */
