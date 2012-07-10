@@ -42,7 +42,6 @@ public class GameWindow extends JFrame{
 		setMaximumSize(dim);
 		setPreferredSize(dim);
 		setUndecorated(true);
-		System.out.println(getContentPane().getInsets().left);
 		add(panel);
 		pack();
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
