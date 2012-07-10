@@ -3,7 +3,7 @@
 public class BombermanEntity extends Entity {
 	/**
 	 * 
-	 * @param src Phad zum Bomberman Bild
+	 * @param src Pfad zum Bomberman Bild
 	 * @param x	X Position des Bombermans
 	 * @param y Y Position des Bombermans
 	 */

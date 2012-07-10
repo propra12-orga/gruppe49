@@ -17,13 +17,13 @@ public class Game {
 	 public static GameWindow gamew;
 	 public static String winner="";
 	/*
-	*	Boolean variable um zu sehen ob das Spiel am laufen ist 
+	*	Boolean Variable, um zu sehen, ob das Spiel am laufen ist 
 	*/
 	public static boolean running=false;
 	
 	
 	/*
-	 * Setzt Das spiel auf laufen und šffnet ein neues SpielFenster
+	 * Setzt Das Spiel auf laufen und oeffnet ein neues SpielFenster
 	 */
 	public static void main(String[] args) {
 		running=true;
@@ -42,7 +42,7 @@ public class Game {
 	    pane.setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    if (shouldFill) {
-	    //natural height, maximum width
+	    //normale Hoehe, maximale Weite
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    }
 	 
@@ -151,14 +151,14 @@ public class Game {
 	
 	
     private static void createAndShowGUI() {
-        //Create and set up the window.
+        //erstellt und setzt das fenster
         JFrame frame = new JFrame("Bomberman");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
-        //Set up the content pane.
+       
         addComponentsToPane(frame.getContentPane());
  
-        //Display the window.
+        //oeffnet das fenster
         
         frame.pack();
         frame.setVisible(true);

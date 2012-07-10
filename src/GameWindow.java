@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 public class GameWindow extends JFrame{
 
 	/*
-	 * GameWindow enthält die Weite,die Höhe, die Dimension und das GamePanel 
+	 * GameWindow enthaelt die Weite,die Hoehe, die Dimension und das GamePanel 
 	 * GameWindow erbt von JFRAME
 	 */
 	private static final long serialVersionUID = 1L;

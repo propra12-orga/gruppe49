@@ -1,7 +1,7 @@
 
 
 public class Entity {
-
+	
 	protected double x;
 	protected double y;
 	protected double mx;
@@ -14,7 +14,7 @@ public class Entity {
 	
 	/**
 	 * 
-	 * @param src holt das bild mithilfe der Sprite Klasse und speicherd es ab 
+	 * @param src holt das bild mit Hilfe der Sprite Klasse und speichert es ab 
 	 * @param x  Setzt die X Position von dem Entity Objekt
 	 * @param y  Setzt Y Position von dem Entity Objekt
 	 */

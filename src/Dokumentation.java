@@ -1,4 +1,7 @@
-
+/*
+ * Hier wird auf die Dokmentation zugegriffen
+ * 
+ */
 
 import java.awt.Dimension;
 
