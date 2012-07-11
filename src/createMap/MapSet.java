@@ -1,5 +1,6 @@
 package createMap;
 
+
 import javax.swing.JComponent;
 
 public class MapSet implements Runnable{
@@ -11,6 +12,7 @@ public class MapSet implements Runnable{
 	private boolean s2;
 	private boolean fertig;
 	private boolean reset;
+	private int[][] a=new int[11][15];
 	private JComponent comp;
 	/*
 	 * Diese klasse ist fuer das setzen der stein zusteandig
@@ -28,13 +30,19 @@ public class MapSet implements Runnable{
 		fertig=false;
 		reset=false;
 		this.comp=comp;
+		for (int i = 0; i < 11; i++) {
+			for (int j = 0; j < 15; j++) {
+				a[i][j]=0;
+			}
+		}
 	}
 	
 	
 	
 	
 	public void run(){
-		while(CMap.running && !fertig){
+		int bomberman1=0,bomberman2=0;
+		while(CMap.running && !fertig ){
 			try{
 				if(MapField.input.isClick()){
 					int x=MapField.input.getX();
@@ -76,7 +84,7 @@ public class MapSet implements Runnable{
 						reset=false;
 					}
 					
-					if(x>=760&&x<=940&&y>=455&&y<=495){
+					if(x>=760&&x<=940&&y>=455&&y<=495&&bomberman1==1 && bomberman2==1){
 						b1=false;
 						b2=false;
 						s1=false;
@@ -91,11 +99,17 @@ public class MapSet implements Runnable{
 						s1=false;
 						s2=false;
 						fertig=false;
+						reset=true;
 						EntityManager.entitylist.clear();
+						bomberman1=0;
+						bomberman2=0;
+						for (int i = 0; i < 11; i++) {
+							for (int j = 0; j < 15; j++) {
+								a[i][j]=0;
+							}
+						}
 					}
-					
-					
-					
+
 				
 					for(int i=50;i<=750;i=i+50){
 						if(x<=i){
@@ -110,36 +124,48 @@ public class MapSet implements Runnable{
 						}
 					}
 					if(x<=750&&y<=550){
-					if(b1){
+					if(b1&&bomberman1==0){
 						BombermanEntity spieler1=new BombermanEntity("src/createMap/Bomberman1.png",ax,ay,"Spieler1");
+						a[ax/50][ay/50]=3;
 						EntityManager.entitylist.add(spieler1);
+						bomberman1++;
 					}
-					if(b2){
+					if(b2&&bomberman2==0){
 						BombermanEntity spieler2=new BombermanEntity("src/createMap/Bomberman2.png",ax,ay,"Spieler2");
 						EntityManager.entitylist.add(spieler2);
+						a[ax/50][ay/50]=4;
+						bomberman2++;
 					}
 					if(s1){
 						StoneEntity stone1=new StoneEntity("src/createMap/stone.png",ax,ay);
 						EntityManager.entitylist.add(stone1);
+						a[ax/50][ay/50]=1;
 					}
 					if(s2){
 						StoneEntity stone2=new StoneEntity("src/createMap/stone2.png",ax,ay);
 						EntityManager.entitylist.add(stone2);
+						a[ax/50][ay/50]=2;
 					}
-					if(fertig){
-						System.out.println("fertig");
-					}
+					
 
 					}
 				}
 				
 			comp.repaint();	
 			Thread.sleep(20);
-			}catch(Exception ex){
-				
-			}
+			}catch(Exception ex){}
 		}
 		
+		if(fertig){	  
+			OutputFile outputFile = new OutputFile(a);
+		    outputFile.schreiben();	
+		    EntityManager.entitylist.clear();
+			EntityManager.entitylistb1.clear();
+	        EntityManager.entitylistb2.clear();
+	        EntityManager.entityliste1.clear();
+	        EntityManager.entityliste2.clear();
+		    CMap.cm.dispose();
+		    
+		}
 	}
-
 }

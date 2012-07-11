@@ -12,9 +12,11 @@ public class CMap extends JFrame{
 	private int height;
 	private Dimension dim;
 	public static boolean running=true;
+	public static CMap cm;
 	
 	public CMap(String title, int width,int height){
 		super(title);
+		cm=this;
 		this.height=height;
 		this.width=width+200;
 		dim=new Dimension(this.width,this.height);

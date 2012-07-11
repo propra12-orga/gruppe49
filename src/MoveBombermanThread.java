@@ -1,5 +1,7 @@
 
 
+import java.io.File;
+
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -148,6 +150,13 @@ public class MoveBombermanThread implements Runnable {
 		        EntityManager.entityliste2.clear();
 		        Game.gamew.dispose();
 		        Game.running=true;
+		        File file = new File("rescorce/MapCreator.txt" );
+
+		        if( ! file.delete() )
+		        {
+		        file.delete();
+		        }
+
 				Game.gamew=new GameWindow("Bomberman", 750, 572,1);
 			}
 			 players=null;

@@ -5,6 +5,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ public class Game {
 	 final static boolean RIGHT_TO_LEFT = false;
 	 public static GameWindow gamew;
 	 public static String winner="";
+	 public static boolean cm=false;
 	/*
 	*	Boolean variable um zu sehen ob das Spiel am laufen ist 
 	*/
@@ -107,7 +109,12 @@ public class Game {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				File file = new File("rescorce/MapCreator.txt" );
 
+		        if( ! file.delete() )
+		        {
+		        file.delete();
+		        }
 				System.exit(0);
 
 			}

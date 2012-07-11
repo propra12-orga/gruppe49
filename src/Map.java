@@ -1,3 +1,5 @@
+import java.io.File;
+
 
 
 public class Map {
@@ -29,8 +31,14 @@ public class Map {
 	public void setMap(){
 		if(modus==1){
 			file=new ReadFile("rescorce/ausgang.txt");
-		}if(modus==2){
-			file=new ReadFile("rescorce/mapsteinebomberman.txt");
+		}
+		
+		if(modus==2){
+		 File file2=new File("rescorce/MapCreator.txt");
+		 file=new ReadFile("rescorce/MapCreator.txt");
+			if(!file2.exists()){
+				file=new ReadFile("rescorce/mapsteinebomberman.txt");			
+			}
 		}
 	    a=new int[file.getDimX()][file.getDimY()];
 		a=file.getContent();
