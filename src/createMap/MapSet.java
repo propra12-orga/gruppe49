@@ -126,25 +126,25 @@ public class MapSet implements Runnable{
 					if(x<=750&&y<=550){
 					if(b1&&bomberman1==0){
 						BombermanEntity spieler1=new BombermanEntity("src/createMap/Bomberman1.png",ax,ay,"Spieler1");
-						a[ax/50][ay/50]=3;
+						a[ay/50][ax/50]=3;
 						EntityManager.entitylist.add(spieler1);
 						bomberman1++;
 					}
 					if(b2&&bomberman2==0){
 						BombermanEntity spieler2=new BombermanEntity("src/createMap/Bomberman2.png",ax,ay,"Spieler2");
 						EntityManager.entitylist.add(spieler2);
-						a[ax/50][ay/50]=4;
+						a[ay/50][ax/50]=4;
 						bomberman2++;
 					}
 					if(s1){
 						StoneEntity stone1=new StoneEntity("src/createMap/stone.png",ax,ay);
 						EntityManager.entitylist.add(stone1);
-						a[ax/50][ay/50]=1;
+						a[ay/50][ax/50]=1;
 					}
 					if(s2){
 						StoneEntity stone2=new StoneEntity("src/createMap/stone2.png",ax,ay);
 						EntityManager.entitylist.add(stone2);
-						a[ax/50][ay/50]=2;
+						a[ay/50][ax/50]=2;
 					}
 					
 
